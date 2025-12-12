@@ -26,12 +26,17 @@ header .container {
   height: 80px;  /* ajuste o tamanho se quiser */
 }
 
-.ilustration{
-  height: 400px;
+.ilustration {
+  width: 100%;
+  max-width: 600px; /* controla o tamanho no desktop */
+  height: auto;     /* ajusta automaticamente no mobile */
   border-radius: 40px;
   padding: 1.5rem;
-  margin: 1.5rem;
+  margin: auto;
+  display: block;
+  
 }
+
 
 
 nav a {
@@ -161,7 +166,13 @@ footer {
   .hamburger {
       display: flex;
   }
+  .ilustration {
+    padding: 0.8rem;
+    border-radius: 15px;
+  }
 }
+
+
 
 /* MENU MOBILE ABERTO */
 .mobile-menu.open {
