@@ -26,16 +26,68 @@ header .container {
   height: 80px;  /* ajuste o tamanho se quiser */
 }
 
+                                                                      /*
 .ilustration {
   width: 100%;
-  max-width: 600px; /* controla o tamanho no desktop */
-  height: auto;     /* ajusta automaticamente no mobile */
+  max-width: 600px; 
+  height: auto;     
   border-radius: 40px;
   padding: 1.5rem;
   margin: auto;
-  display: block;
-  
+  display: left;                                                       
+  }                                                                     */                                                                   
+
+
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* espaçamento entre os itens */
+  margin: 20px 0;
 }
+
+/* Texto à esquerda */
+.text-left {
+  flex: 1;  /* Permite que o texto ocupe o espaço disponível */
+  max-width: 20%;
+  text-align: right;
+}
+
+/* Imagem central */
+.image-container {
+  flex: 1;  /* Permite que a imagem ocupe o espaço disponível */
+  max-width: 60%;
+  display: flex;
+  justify-content: center;  /* Centraliza a imagem */
+}
+
+.ilustration {
+  width: 100%;  /* Faz com que a imagem ocupe todo o espaço disponível */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Texto à direita */
+.text-right {
+  flex: 1;  /* Permite que o texto ocupe o espaço disponível */
+  max-width: 20%;
+  text-align: left;
+}
+
+/* Responsividade - Ajuste para telas menores */
+@media (max-width: 768px) {
+  .content-wrapper {
+      flex-direction: column;  /* Empilha os elementos verticalmente */
+      gap: 10px;
+  }
+
+  .text-left, .text-right, .image-container {
+      max-width: 100%;  /* Garante que os elementos ocupem toda a largura da tela */
+  }
+}
+
 
 
 
@@ -116,7 +168,6 @@ a:hover {
 footer {
   background-color: #f2f2f2;
   padding: 20px;
-  text-align: center;
   color: #555;
 }
 
