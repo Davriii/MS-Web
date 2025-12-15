@@ -164,6 +164,22 @@ a:hover {
   background-color: #063776;
 }
 
+.icons{
+  width: 5%;
+  color: black;
+}
+.icons:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+  color: #0a4da3;
+}
+.divicon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50%;
+}
+
 /* ---------- FOOTER ---------- */
 footer {
   background-color: #f2f2f2;
