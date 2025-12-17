@@ -9,23 +9,23 @@
 </head>
 <body>
 
-    <header>
+    <header id="header">
         <div class="container">
     
             <!-- LOGO -->
             <div class="logo">
-                <img src="MECPROSOFTALTERDATA.png" alt="Logo da MEC Sistemas" class="logo">
+                <img src="MECPROSOFTALTERDATA.png" alt="Logo da MEC Sistemas" class="logo-img">
             </div>
     
             <!-- MENU DESKTOP -->
-            <nav class="menu">
-                <a href="#empresa">Empresa</a>
-                <a href="#contato">Contato</a>
-                <a href="#endereco">Endereço</a>
+            <nav class="menu">  
+                <a class="menu-link" href="#empresa">Empresa</a>
+                <a class="menu-link" href="#contato">Contato</a>
+                <a class="menu-link" href="#endereco">Endereço</a>
             </nav>
     
             <!-- BOTÃO MENU HAMBÚRGUER -->
-            <div class="hamburger" onclick="toggleMenu()">
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -41,17 +41,18 @@
         </div>
     </header>
     
-    
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">↑</button>
 
     <section class="hero">
         <div class="hero-text">
-            <h2>Atendendo empreendedores há mais de 20 anos!</h2><br>
-            <p>Oferecendo sistemas para gestão contábil, financeira e empresarial.</p>
-            <a href="#contato" class="btn">Entrar em Contato</a>
+            <h2 class="hero-title">Atendendo empreendedores há mais de 20 anos!</h2>
+            <p class="hero-subtitle">Oferecendo sistemas para gestão contábil, financeira e empresarial.</p>
+            <a href="#contato" class="btn hero-btn">Entrar em Contato</a>
         </div>
     </section>
 
-    <section id="empresa" class="section">
+    <section id="empresa" class="section fade-in">
         <div class="content-wrapper">
             <!-- Texto à Esquerda -->
             <div class="text-left">
@@ -61,53 +62,54 @@
     
             <!-- Imagem no Meio -->
             <div class="image-container">
-                <img src="pexels-goumbik-590011.jpg" alt="Imagem ilustrativa" class="ilustration">
+                <img src="pexels-fauxels-3183165.jpg" alt="Imagem ilustrativa" class="ilustration">
             </div>
     
             <!-- Texto à Direita -->
             <div class="text-right">
                 <h3>Softwares e produtos</h3>
-        <p>Nossos sistemas são criados para facilitar e automatizar processos, economizar tempo e melhorar a organização interna da sua empresa.</p>
+                <p>Nossos sistemas são criados para facilitar e automatizar processos, economizar tempo e melhorar a organização interna da sua empresa.</p>
             </div>
         </div>
     </section>
     
-    <section id="contato" class="section">  
+    <section id="contato" class="section fade-in">  
         <h3>Fale Conosco</h3>
         <p>Entre em contato com nossa equipe comercial ou agende uma visita.</p><br>
 
-        <p><div class="divicon"><a href="https://wa.me/5517992250660" target="_blank"><img class="icons" src="whatsapp.png" alt=""></a></div><strong>(17) 99225-0660</strong></p><br>
-        
+        <div class="contact-item">
+            <img class="icons" src="telefoneazul.png" alt="Telefone">
+            <strong>32251707</strong>
+        </div>
 
-        <p><div class="divicon"><img style="width: 4%;" src="telefoneazul.png" alt=""></div><strong>32251707</strong></p><br>
-        
+        <div class="contact-item">
+            <a href="https://wa.me/5517992250660" target="_blank">
+                <img class="icons" src="whatsapp.png" alt="WhatsApp">
+            </a>
+            <strong>(17) 99225-0660</strong>
+        </div>
 
-        <p><div class="divicon"><a href="https://www.instagram.com/alterdata_prosoft_riopreto_/" target="_blank"><img src="instagram-logo-instagram-icon-transparent-free-png.webp" alt="logo do instagram" class="icons"></a></div><strong>Nosso Instagram</strong></p>
-
-        <!--<a href="https://wa.me/5517992250660" target="_blank" class="btn">Clique para abrir pelo WhatsApp</a> -->
-        
+        <div class="contact-item">
+            <a href="https://www.instagram.com/alterdata_prosoft_riopreto_/" target="_blank">
+                <img src="instagram-logo-instagram-icon-transparent-free-png.webp" alt="logo do instagram" class="icons">
+            </a>
+            <strong>Nosso Instagram</strong>
+        </div>
     </section>       
 
-    <section id="endereco" class="section">
+    <section id="endereco" class="section fade-in">
         <h3>Estamos em:</h3>
         <p>Av. Marginal Aniloel Nazareth, 4252 - Jardim Estrela, São José do Rio Preto - SP, 15070-230</p>
-        <img src="mec frente.jpg" alt="foto da empresa MEC Sistemas" class="ilustration">
+        <img src="mec frente.jpg" alt="foto da empresa MEC Sistemas" class="ilustration" style="width: 70%;">
     </section>
 
-                                                                                   
-                                                                        
-
     <footer>
-        <p style="text-align: center;">© 2025 MEC Sistemas — Todos os direitos reservados.</p><img src="mecprosoftalterdata.jfif" alt="mecprosoftalterdata" style="max-width: 5%; display: block; margin: 0 auto;">
+        <p style="text-align: center;">© 2025 MEC Sistemas – Todos os direitos reservados.</p>
+        <img src="LOGO MEC SISTEMAS TRANSPARENTE.png" alt="mecsistemas" style="max-width: 5%; display: block; margin: 10px auto;">
     </footer>
 
-    <!-- SCRIPT DO MENU MOBILE -->
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("mobileMenu");
-            menu.classList.toggle("open");
-        }
-    </script>
+    <!-- SCRIPT JAVASCRIPT -->
+    <script src="script.js"></script>
 
 </body>
 </html>

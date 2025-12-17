@@ -6,11 +6,31 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ---------- HEADER ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ---------- HEADER COM ANIMAÇÃO ---------- */
 header {
   background-color: #ffffff;
   padding: 15px 0;
   color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header.scrolled {
+  padding: 8px 0;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 header .container {
@@ -21,192 +41,254 @@ header .container {
   align-items: center;
 }
 
-/* PARA A LOGO */
-.logo {
-  height: 80px;  /* ajuste o tamanho se quiser */
+/* LOGO COM TRANSIÇÃO */
+.logo-img {
+  height: 80px;
+  transition: all 0.3s ease;
 }
 
-                                                                      /*
-.ilustration {
-  width: 100%;
-  max-width: 600px; 
-  height: auto;     
-  border-radius: 40px;
-  padding: 1.5rem;
-  margin: auto;
-  display: left;                                                       
-  }                                                                     */                                                                   
-
-
-
-.content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px; /* espaçamento entre os itens */
-  margin: 20px 0;
+header.scrolled .logo-img {
+  height: 60px;
 }
 
-/* Texto à esquerda */
-.text-left {
-  flex: 1;  /* Permite que o texto ocupe o espaço disponível */
-  max-width: 20%;
-  text-align: right;
-}
-
-/* Imagem central */
-.image-container {
-  flex: 1;  /* Permite que a imagem ocupe o espaço disponível */
-  max-width: 60%;
-  display: flex;
-  justify-content: center;  /* Centraliza a imagem */
-}
-
-.ilustration {
-  width: 100%;  /* Faz com que a imagem ocupe todo o espaço disponível */
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Texto à direita */
-.text-right {
-  flex: 1;  /* Permite que o texto ocupe o espaço disponível */
-  max-width: 20%;
-  text-align: left;
-}
-
-/* Responsividade - Ajuste para telas menores */
-@media (max-width: 768px) {
-  .content-wrapper {
-      flex-direction: column;  /* Empilha os elementos verticalmente */
-      gap: 10px;
-  }
-
-  .text-left, .text-right, .image-container {
-      max-width: 100%;  /* Garante que os elementos ocupem toda a largura da tela */
-  }
-}
-
-
-
-
+/* MENU DESKTOP COM EFEITO HOVER */
 nav a {
   margin-left: 20px;
   color: rgb(14, 109, 219);
   text-decoration: none;
   font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* LINHA ANIMADA AO PASSAR O MOUSE */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(14, 109, 219);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #063776;
 }
 
 a {
   color: rgb(14, 109, 219);
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #063776;
 }
 
-/* ---------- HERO ---------- */
+/* ---------- HERO COM GRADIENTE ANIMADO ---------- */
 .hero {
-  background: linear-gradient(to right, #0a4da3, #1a73e8);
+  background: linear-gradient(135deg, #0a4da3, #1a73e8, #4a90e2);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
   color: white;
-  padding: 80px 20px;
+  padding: 150px 20px 80px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 80px;
 }
 
-.hero .btn {
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* ANIMAÇÕES DE ENTRADA DO HERO */
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: slideDown 1s ease 0.2s backwards;
+}
+
+.hero-btn {
+  animation: slideDown 1s ease 0.4s backwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- BOTÃO COM EFEITO ---------- */
+.btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: white;
+  margin-top: 15px;
+  padding: 12px 30px;
+  background-color: white;
   color: #0a4da3;
-  border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.hero .btn:hover {
-  background: #dce9ff;
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background-color: #dce9ff;
 }
 
-/* ---------- SEÇÕES ---------- */
+/* ---------- SEÇÕES COM FADE IN ---------- */
 .section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .section h3 {
   color: #0a4da3;
+  font-size: 2rem;
   margin-bottom: 15px;
 }
 
-/* ---------- BOTÃO ---------- */
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #0a4da3;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
+/* ANIMAÇÃO DE FADE IN */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.btn:hover {
-  background-color: #063776;
+.fade-in.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.icons{
-  width: 5%;
-  color: black;
+/* ---------- LAYOUT EMPRESA ---------- */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 40px 0;
 }
-.icons:hover{
-  transform: scale(1.3);
-  transition: all 0.3s;
-  color: #0a4da3;
+
+.text-left {
+  flex: 1;
+  max-width: 25%;
+  text-align: right;
 }
-.divicon{
+
+.image-container {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.text-right {
+  flex: 1;
+  max-width: 25%;
+  text-align: left;
+}
+
+/* IMAGEM SEM ANIMAÇÃO */
+.ilustration {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ---------- SEÇÃO CONTATO ---------- */
+.contact-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50%;
+  gap: 15px;
+  margin: 25px 0;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(10px);
+}
+
+/* ÍCONES COM ANIMAÇÃO */
+.icons {
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.icons:hover {
+  transform: scale(1.3) /*rotate(360deg); (ROTACIONAR PODE SER MUITO) */;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-  background-color: #f2f2f2;
-  padding: 20px;
-  color: #555;
-}
-
-/* MENU MOBILE — COMEÇA ESCONDIDO */
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: #0a4da3;
-  padding: 10px 0;
-}
-
-.mobile-menu a {
-  padding: 12px;
+  background: linear-gradient(135deg, #6799da, #1a73e8);
   color: white;
-  text-decoration: none;
+  padding: 30px 20px;
   text-align: center;
 }
 
-.mobile-menu a:hover {
-  background: #063776;
+/* ---------- BOTÃO VOLTAR AO TOPO ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0a4da3;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 999;
 }
 
-/* BOTÃO HAMBÚRGUER (DESKTOP = OCULTO) */
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #063776;
+  transform: translateY(-5px);
+}
+
+/* ---------- MENU HAMBÚRGUER ANIMADO ---------- */
 .hamburger {
   width: 30px;
   cursor: pointer;
@@ -219,29 +301,86 @@ footer {
   height: 4px;
   background-color: #0a4da3;
   border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
-/* RESPONSIVO */
+/* ANIMAÇÃO DO X */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ---------- MENU MOBILE ---------- */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0a4da3, #1a73e8);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.mobile-menu a {
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.mobile-menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.mobile-menu.open {
+  max-height: 300px;
+}
+
+/* ---------- RESPONSIVO ---------- */
 @media (max-width: 768px) {
-
-  /* Esconde menu normal */
   .menu {
-      display: none;
+    display: none;
   }
 
-  /* Exibe menu hamburguer */
   .hamburger {
-      display: flex;
+    display: flex;
   }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .text-left, .text-right, .image-container {
+    max-width: 100%;
+    text-align: center;
+  }
+
   .ilustration {
-    padding: 0.8rem;
     border-radius: 15px;
   }
-}
 
+  .hero-title {
+    font-size: 1.8rem;
+  }
 
+  .hero-subtitle {
+    font-size: 1rem;
+  }
 
-/* MENU MOBILE ABERTO */
-.mobile-menu.open {
-  display: flex;
+  .contact-item {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
