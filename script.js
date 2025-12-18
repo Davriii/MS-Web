@@ -71,8 +71,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 // Remove o destaque após 3 segundos
                 setTimeout(() => {
                     targetElement.classList.remove('highlight');
-                }, 3000);
-            }
+                }, 1500);
+
+            
+            }            
         }
     });
 });
